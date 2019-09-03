@@ -1,9 +1,9 @@
-#  Skill Name
+#  Piazza Setup
 
-Author: FirstName LastName, YYYY-MM-DD
+Author: David Kirk, 2019-09-03
 
 ## Summary
-
+Posted a test post to Piazza
 
 ## Sketches and Photos
 
