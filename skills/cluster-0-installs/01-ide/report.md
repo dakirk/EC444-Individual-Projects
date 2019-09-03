@@ -1,9 +1,9 @@
-#  Skill Name
+#  IDE Setup
 
-Author: FirstName LastName, YYYY-MM-DD
+Author: David Kirk, 2019-09-03
 
 ## Summary
-
+I'm using Sublime as an editor.
 
 ## Sketches and Photos
 
