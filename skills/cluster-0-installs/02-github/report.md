@@ -6,7 +6,7 @@ Author: David Kirk, 2019-09-03
 
 
 ## Sketches and Photos
-
+![Image](./images/githubscreenshot.png)
 
 ## Modules, Tools, Source Used in Solution
 
