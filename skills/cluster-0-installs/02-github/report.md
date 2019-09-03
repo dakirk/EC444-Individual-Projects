@@ -1,6 +1,6 @@
 #  Skill Name
 
-Author: FirstName LastName, YYYY-MM-DD
+Author: David Kirk, 2019-09-03
 
 ## Summary
 
