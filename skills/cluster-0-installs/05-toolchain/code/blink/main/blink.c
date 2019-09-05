@@ -11,11 +11,12 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 #include "sdkconfig.h"
+#include "pins.h"
 
 /* Can use project configuration menu (idf.py menuconfig) to choose the GPIO to blink,
    or you can edit the following line and set a number here.
 */
-#define BLINK_GPIO 13//CONFIG_BLINK_GPIO
+#define BLINK_GPIO A0//CONFIG_BLINK_GPIO
 
 void app_main(void)
 {
