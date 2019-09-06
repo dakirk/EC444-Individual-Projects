@@ -34,6 +34,10 @@ void app_main()
     while(1) {
 
 
+      if (mode == 2) {
+        printf("Enter an integer\n");
+      }
+
       // gets()
       char buf[5];
       gets(buf);
