@@ -1,0 +1,5 @@
+Friday: 68 F, showers
+Saturday: 68 F, rain
+Sunday: 68 F, mostly sunny
+
+Current Dow value: 26,803.58
