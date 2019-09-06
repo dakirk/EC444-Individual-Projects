@@ -33,7 +33,7 @@ void app_main()
 
     while(1) {
 
-
+      //prompt for hex mode
       if (mode == 2) {
         printf("Enter an integer\n");
       }
@@ -42,6 +42,7 @@ void app_main()
       char buf[5];
       gets(buf);
 
+      //catch the mode switch character before anything else is done
       if (buf[0] == 's' && buf[1] == '\0') {
         if (mode == 0) {
             mode = 1;
@@ -57,15 +58,22 @@ void app_main()
         }
       } else {
 
+        //toggle mode
         if (mode == 0) {
             if (buf[0] == 't' && buf[1] == '\0') {
                 printf("Read: t\n");
                 toggle = !toggle;
                 gpio_set_level(TOGGLE_GPIO, toggle);
             }
-        } else if (mode == 1) {
+        } 
+
+        //echo mode
+        else if (mode == 1) {
             printf("echo: %s\n", buf);
-        } else {
+        }
+
+        //hex mode (uses builtin atio and itoa functions)
+        else {
             char hexBuf[20];
             num = atoi(buf);
             itoa(num, hexBuf, 16);
@@ -75,25 +83,6 @@ void app_main()
 
 
       }
-      
-
-      /*
-      if (buf[0] == 't' && buf[1] == '\0') {
-        printf("t\n");
-        //printf("%d\n", toggle);
-        toggle = !toggle;
-        gpio_set_level(TOGGLE_GPIO, toggle);
-
-      } else if (buf[0] != '\0') {
-        printf("string is: %s\n", buf);
-      }*/
-
-            // or
-
-      // scanf()
-      //printf("Enter a number: \n");
-      //scanf("%d", &num);
-      //printf("Got: %d\n", num);
 
       vTaskDelay(50 / portTICK_RATE_MS);
     }

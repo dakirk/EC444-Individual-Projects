@@ -3,10 +3,10 @@
 Author: David Kirk, 2019-09-05
 
 ## Summary
-I installed the toolchain and got the hello-world and blink programs running on the micro.
+I installed the toolchain and got the hello_world and blink programs running on the micro.
 
 ## Sketches and Photos
-hello-world:
+hello_world:
 ![Image](./images/helloworldcapture.png)
 
 blink:
