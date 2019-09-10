@@ -35,7 +35,7 @@ void app_main()
 
       //prompt for hex mode
       if (mode == 2) {
-        printf("Enter an integer\n");
+        printf("Enter an integer:\n");
       }
 
       // gets()
