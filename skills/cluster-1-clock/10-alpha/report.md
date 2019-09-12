@@ -9,7 +9,7 @@ Connected the 14-segment alphanumeric display with the given I2C code and made i
 
 
 ## Modules, Tools, Source Used in Solution
-Standard toolchain, given I2C code
+Standard idf.py toolchain, given I2C code, [this](https://github.com/adafruit/Adafruit_LED_Backpack/blob/master/Adafruit_LEDBackpack.cpp) header file: 
 
 ## Supporting Artifacts
 [![](http://img.youtube.com/vi/cmDh5LTRQlE/0.jpg)](http://www.youtube.com/watch?v=cmDh5LTRQlE "Alphanumeric display demo")
