@@ -4,3 +4,4 @@ skills/cluster-1-clock/08-console/code/console_io/build/
 skills/cluster-1-clock/09-gpio/code/gpio/build/
 skills/cluster-1-clock/10-alpha/code/i2c-display/build/
 skills/cluster-1-clock/11-servo/code/mcpwm_servo_control/build/
+skills/cluster-1-clock/12-rtos/code/rtos/build/
