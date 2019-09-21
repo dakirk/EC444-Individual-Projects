@@ -1,3 +1,3 @@
 # Code Readme
 
-Brief explanation on how to navigate your code folder. For example, main consists of the entry function, and lib are where the resource libraries are located.
+All code is contained within main. Build and flash by navigating to the console_io folder and running the build or flash command there.
