@@ -247,7 +247,7 @@ static void test_alpha_display() {
         //printf("- wrote: T.D.C.L. \n\n");
       }
 
-      vTaskDelay(pdMS_TO_TICKS(1000));
+      vTaskDelay(pdMS_TO_TICKS(2000));
 
     }
 
