@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/Users/David/Desktop/College_Stuff/EC444_Projects/Kirk-David/skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

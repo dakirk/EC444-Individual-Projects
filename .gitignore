@@ -7,3 +7,4 @@ skills/cluster-1-clock/11-servo/code/mcpwm_servo_control/build/
 skills/cluster-1-clock/12-rtos/code/rtos/build/
 skills/cluster-2-sensor/15-battery/code/adc/build/
 skills/cluster-2-sensor/16-thermistor/code/thermistor/build/
+skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/
