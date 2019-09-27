@@ -203,7 +203,8 @@ static void test_alpha_display() {
       double temperatureKelvin = -(1 / ((log(10000.0/resistance)/3435.0) - (1/298.0)));
       //uint32_t temperatureKelvin = 1 / ((1/298) + ((log(3300-voltage)-1)/3435));
       double temperatureCelsius = (temperatureKelvin - 273.15);
-      printf("Raw: %d\tVoltage: %fmV Temperature: %fC\n", adc_reading, voltage, temperatureCelsius);
+      //printf("Raw: %d\tVoltage: %fmV Temperature: %fC\n", adc_reading, voltage, temperatureCelsius);
+      printf("Temperature: %f C\n", temperatureCelsius);
 
       int i;
 
