@@ -1,4 +1,4 @@
-#  Raspberyy Pi
+#  Raspberry Pi
 
 Author: David Kirk, 2019-10-04
 
