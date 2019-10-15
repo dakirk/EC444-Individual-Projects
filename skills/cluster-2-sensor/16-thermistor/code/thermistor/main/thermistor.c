@@ -201,8 +201,9 @@ static void test_alpha_display() {
       double voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
       double resistance = (33000.0/(voltage/1000)) - 10000.0;
       double temperatureKelvin = -(1 / ((log(10000.0/resistance)/3435.0) - (1/298.0)));
-      //uint32_t temperatureKelvin = 1 / ((1/298) + ((log(3300-voltage)-1)/3435));
       double temperatureCelsius = (temperatureKelvin - 273.15);
+      //uint32_t temperatureKelvin = 1 / ((1/298) + ((log(3300-voltage)-1)/3435));
+
       //printf("Raw: %d\tVoltage: %fmV Temperature: %fC\n", adc_reading, voltage, temperatureCelsius);
       printf("Temperature: %f C\n", temperatureCelsius);
 
