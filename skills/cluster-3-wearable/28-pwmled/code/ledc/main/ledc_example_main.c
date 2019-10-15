@@ -10,7 +10,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/ledc.h"
+#include "driver/uart.h"
+#include "esp_vfs_dev.h"
 #include "esp_err.h"
+
 
 /*
  * About this example
@@ -50,6 +53,8 @@
 #define LEDC_TEST_CH_NUM       (4)
 #define LEDC_TEST_DUTY         (4000)
 #define LEDC_TEST_FADE_TIME    (3000)
+
+int ledc_intensity;
 
 //moved these things outside of function to make them global
 /*
@@ -131,30 +136,32 @@ static void pwm_init() {
 
     // Initialize fade service.
     ledc_fade_func_install(0);
+
+    ledc_intensity = 1;
+
 }
 
 static void pwm_task() {
 
     int channel = 1; //pwm channel 1
-    int intensity = 1;
     int direction = 1;
     int duty;
 
     while (1) {
 
         //calculate duty cycle from intensity (0 to 10 -> 0% to 100%)
-        duty = LEDC_TEST_DUTY * ((double)intensity / 10.0);
+        duty = (LEDC_TEST_DUTY*2) * ((double)ledc_intensity / 10.0);
 
         //set new value (thread safe version)
         ledc_set_duty_and_update(ledc_channel[channel].speed_mode, ledc_channel[channel].channel, duty, ledc_channel[channel].hpoint);
 
         vTaskDelay(250 / portTICK_PERIOD_MS);
 
-        printf("%d\n", intensity);
+        //printf("%d\n", ledc_intensity);
 
         //intensity setting logic
-        intensity += direction;
-        if (intensity > 9 || intensity < 1)
+        //ledc_intensity += direction;
+        if (ledc_intensity > 9 || ledc_intensity < 1)
             direction *= -1;
 
         /*
@@ -193,9 +200,43 @@ static void pwm_task() {
     }
 }
 
+static void console_read_task() {
+    /* Install UART driver for interrupt-driven reads and writes */
+    ESP_ERROR_CHECK( uart_driver_install(UART_NUM_0,
+      256, 0, 0, NULL, 0) );
+
+    /* Tell VFS to use UART driver */
+    esp_vfs_dev_uart_use_driver(UART_NUM_0);
+
+    int input;
+
+    while(1) {
+
+        // gets()
+        char buf[10];
+        gets(buf);
+
+        input = atoi(buf);
+
+        if (input > 10)
+            ledc_intensity = 10;
+        else if (input < 0)
+            ledc_intensity = 0;
+        else
+            ledc_intensity = input;
+
+        printf("%d\n", ledc_intensity);
+
+        vTaskDelay(50 / portTICK_RATE_MS);
+
+    }
+}
+
 void app_main(void)
 {
     pwm_init();
 
     xTaskCreate(pwm_task, "pwm_task", 4096, NULL, configMAX_PRIORITIES, NULL);
+    xTaskCreate(console_read_task, "console_read_task", 4096, NULL, configMAX_PRIORITIES-1, NULL);
+
 }
