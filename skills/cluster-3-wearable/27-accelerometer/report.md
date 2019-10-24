@@ -1,6 +1,6 @@
 #  Triple-axis Accelerometer
 
-Author: Kyle Martin (team skill), 2019-10-23
+Author: Kyle Martin, Ayush Upneja, David Kirk (team skill), 2019-10-23
 
 ## Summary
 In this skill, we wired the ADXL343 accelerometer to the ESP32 via SDA and SCL, both of which utilized 10kohm pull-up resistors.  In the program, we wrote three functions: one to read from an 8 bit register, one to write to an 8 bit register, one to read 16 bits, and one to convert acceleration readings in X, Y, and Z to roll and pitch values.  
