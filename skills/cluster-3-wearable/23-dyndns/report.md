@@ -1,18 +1,15 @@
-#  Skill Name
+#  Dynamic DNS
 
-Author: FirstName LastName, YYYY-MM-DD
+Author: Kyle Martin, Ayush Upneja, David Kirk (team skill), 2019-10-15
 
 ## Summary
-
+We set up DDNS and port forwarding for the Raspberry Pi on the router with No-IP. We chose the domain "ec444group2.hopto.org" with the public port 2222 to allow the server to be visible from the greater internet.
 
 ## Sketches and Photos
-
+![Example visit to our domain](images/dns-demo.png)
 
 ## Modules, Tools, Source Used in Solution
-
-
-## Supporting Artifacts
-
+Tomato router software, No-IP
 
 -----
 
