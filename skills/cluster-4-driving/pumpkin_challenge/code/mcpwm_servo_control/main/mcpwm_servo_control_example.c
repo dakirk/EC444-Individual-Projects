@@ -29,7 +29,7 @@
 #include "string.h"
 #include "driver/gpio.h"
 
-static const int RX_BUF_SIZE = 1024;
+static const int RX_BUF_SIZE = 128;
 
 #define TXD_PIN (GPIO_NUM_17)
 #define RXD_PIN (GPIO_NUM_16)
@@ -75,7 +75,7 @@ int rx_task()
     int distConcat = 0;
 
     //while (1) {
-        const int rxBytes = uart_read_bytes(UART_NUM_1, data, RX_BUF_SIZE, 1000 / portTICK_RATE_MS);
+        const int rxBytes = uart_read_bytes(UART_NUM_1, data, RX_BUF_SIZE, 100 / portTICK_RATE_MS);
         if (rxBytes > 0) {
             data[rxBytes] = 0;
             ESP_LOGI(RX_TASK_TAG, "Read %d bytes: '%s'", rxBytes, data);
@@ -83,6 +83,7 @@ int rx_task()
             //printf("%s\n", data);
             //ESP_LOGI("test: ", "result: %s\n", data);
             int i;
+            int distCounter = 0;
 
             for (i = 0; i < rxBytes; i++) {
                 if (data[i] == 0x59 && data[i+1] == 0x59) {
@@ -95,14 +96,18 @@ int rx_task()
                 //ESP_LOGI(RX_TASK_TAG, "Higher byte %d: %x", i, data[i+1]);
                 distConcat = (((uint16_t)data[i+1] << 8) | data[i]);
                 avgDist += distConcat;
+                distCounter++;
 
-                ESP_LOGI(RX_TASK_TAG, "Distance: %d", distConcat);
+                //ESP_LOGI(RX_TASK_TAG, "Distance: %d", distConcat);
             }
 
-            avgDist /= rxBytes;
+            avgDist /= distCounter;
+
+            ESP_LOGI(RX_TASK_TAG, "Distance: %d", avgDist);
+
         }
 
-        vTaskDelay(100/portTICK_RATE_MS);
+        //vTaskDelay(100/portTICK_RATE_MS);
     //}
     free(data);
 
@@ -187,7 +192,7 @@ void drive_control(void *arg)
         //    angle = drive_per_degree_init(count);
         //    printf("pulse width: %dus\n", angle);
         mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 1100);
-        vTaskDelay(100/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
+        //vTaskDelay(100/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
 
         int avgDist = rx_task();
         printf("dist: %d\n", avgDist);
@@ -234,7 +239,7 @@ void app_main(void)
 
     init();
     //xTaskCreate(rx_task, "uart_rx_task", 1024*2, NULL, configMAX_PRIORITIES, NULL);
-    xTaskCreate(tx_task, "uart_tx_task", 1024*2, NULL, configMAX_PRIORITIES-1, NULL);
+    //xTaskCreate(tx_task, "uart_tx_task", 1024*2, NULL, configMAX_PRIORITIES-1, NULL);
 
     printf("Testing servo motor.......\n");
     xTaskCreate(steering_control, "steering_control", 4096, NULL, 5, NULL);
