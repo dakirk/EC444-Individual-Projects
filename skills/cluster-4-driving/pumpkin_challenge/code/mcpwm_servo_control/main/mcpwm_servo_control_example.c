@@ -78,7 +78,7 @@ int rx_task()
         const int rxBytes = uart_read_bytes(UART_NUM_1, data, RX_BUF_SIZE, 100 / portTICK_RATE_MS);
         if (rxBytes > 0) {
             data[rxBytes] = 0;
-            ESP_LOGI(RX_TASK_TAG, "Read %d bytes: '%s'", rxBytes, data);
+            //ESP_LOGI(RX_TASK_TAG, "Read %d bytes: '%s'", rxBytes, data);
             //ESP_LOG_BUFFER_HEXDUMP(RX_TASK_TAG, data, rxBytes, ESP_LOG_INFO);
             //printf("%s\n", data);
             //ESP_LOGI("test: ", "result: %s\n", data);
@@ -195,11 +195,11 @@ void drive_control(void *arg)
         //vTaskDelay(100/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
 
         int avgDist = rx_task();
-        printf("dist: %d\n", avgDist);
+        //printf("dist: %d\n", avgDist);
 
-        if (avgDist < 70) {
-            break;
-        }
+        //if (avgDist < 90) {
+        //    break;
+        //}
 
         //}
     }
@@ -220,9 +220,9 @@ void steering_control(void *arg)
 
         //for (count = 0; count < STEERING_MAX_DEGREE; count++) {
             count = 90;
-            printf("Angle of rotation: %d\n", count);
+            //printf("Angle of rotation: %d\n", count);
             angle = steering_per_degree_init(count);
-            printf("pulse width: %dus\n", angle);
+            //printf("pulse width: %dus\n", angle);
             mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_B, angle);
             vTaskDelay(100/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
         //}

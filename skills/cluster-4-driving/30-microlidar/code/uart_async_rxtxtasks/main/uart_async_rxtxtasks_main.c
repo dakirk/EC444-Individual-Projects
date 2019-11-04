@@ -61,7 +61,7 @@ static void rx_task(void *arg)
         if (rxBytes > 0) {
             data[rxBytes] = 0;
             ESP_LOGI(RX_TASK_TAG, "Read %d bytes: '%s'", rxBytes, data);
-            //ESP_LOG_BUFFER_HEXDUMP(RX_TASK_TAG, data, rxBytes, ESP_LOG_INFO);
+            ESP_LOG_BUFFER_HEXDUMP(RX_TASK_TAG, data, rxBytes, ESP_LOG_INFO);
             //printf("%s\n", data);
             //ESP_LOGI("test: ", "result: %s\n", data);
             int i;

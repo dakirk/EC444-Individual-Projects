@@ -100,9 +100,26 @@ void drive_control(void *arg)
         //    printf("Angle of rotation: %d\n", count);
         //    angle = drive_per_degree_init(count);
         //    printf("pulse width: %dus\n", angle);
-    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 1200);
-    vTaskDelay(1000/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
+    for (count = 1400; count > 1200; count -= 5) {
+        mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, count);
+        vTaskDelay(100/portTICK_RATE_MS);
+    }
+
+    for (count = 1200; count < 1600; count += 5) {
+        mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, count);
+        vTaskDelay(100/portTICK_RATE_MS);
+    }
+
+    for (count = 1600; count >= 1400; count -= 5) {
+        mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, count);
+        vTaskDelay(100/portTICK_RATE_MS);
+    }
+
+    //mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 1200);
+    //vTaskDelay(1000/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
     mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 1400);
+    vTaskDelay(100/portTICK_RATE_MS);
+
 
         //}
     //}
@@ -118,14 +135,14 @@ void steering_control(void *arg)
 
     while (1) {
 
-        //for (count = 0; count < STEERING_MAX_DEGREE; count++) {
-            count = 90;
+        for (count = 0; count < STEERING_MAX_DEGREE; count++) {
+            //count = 90;
             printf("Angle of rotation: %d\n", count);
             angle = steering_per_degree_init(count);
             printf("pulse width: %dus\n", angle);
             mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_B, angle);
             vTaskDelay(100/portTICK_RATE_MS);     //Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation at 5V
-        //}
+        }
 
 
     }
