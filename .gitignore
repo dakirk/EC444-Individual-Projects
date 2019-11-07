@@ -11,4 +11,4 @@ skills/cluster-2-sensor/17-ultrasonic1/code/ultrasonic/build/
 skills/cluster-2-sensor/18-rangefinder/code/rangefinder/build/
 skills/cluster-3-wearable/28-pwmled/code/ledc/build/
 build/
-.DS_Store
+**/.DS_Store

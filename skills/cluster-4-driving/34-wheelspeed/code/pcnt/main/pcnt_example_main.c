@@ -1,3 +1,6 @@
+//NOTE: This code was a test bed for figuring out how to use pcnt. It does not read speed.
+//For proper speedometer functionality, please see this group's Quest 4 code.
+
 /* Pulse counter module - Example
 
    For other examples please check:
@@ -44,10 +47,10 @@
  *   - will be reset to zero.
  */
 #define PCNT_TEST_UNIT      PCNT_UNIT_0
-#define PCNT_H_LIM_VAL      20
+#define PCNT_H_LIM_VAL      100
 #define PCNT_L_LIM_VAL     -10
-#define PCNT_THRESH1_VAL    3
-#define PCNT_THRESH0_VAL   -5
+#define PCNT_THRESH1_VAL    3.0F
+#define PCNT_THRESH0_VAL    0.20F
 #define PCNT_INPUT_SIG_IO   34  // Pulse Input GPIO
 #define PCNT_INPUT_CTRL_IO  5  // Control GPIO HIGH=count up, LOW=count down
 #define LEDC_OUTPUT_IO      18 // Output GPIO of a sample 1 Hz pulse generator
@@ -208,7 +211,7 @@ void app_main(void)
             }
         } else {
             pcnt_get_counter_value(PCNT_TEST_UNIT, &count);
-            printf("Current black counter value :%d\n", blackCount);
+            printf("Current counter value :%d\n", count);
         }
     }
     if(user_isr_handle) {

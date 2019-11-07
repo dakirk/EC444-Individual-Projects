@@ -206,7 +206,7 @@ static void test_adxl343() {
     float xVal, yVal, zVal;
     getAccel(&xVal, &yVal, &zVal);
     calcRP(xVal, yVal, zVal);
-    vTaskDelay(1000 / portTICK_RATE_MS);
+    vTaskDelay(500 / portTICK_RATE_MS);
   }
 }
 
@@ -227,7 +227,7 @@ void app_main() {
   writeRegister(ADXL343_REG_INT_ENABLE, 0);
 
   // Set range
-  setRange(ADXL343_RANGE_16_G);
+  setRange(ADXL343_RANGE_2_G);
   // Display range
   printf  ("- Range:         +/- ");
   switch(getRange()) {
