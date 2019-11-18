@@ -26,6 +26,11 @@ As mentioned above:
 
 One approach to IoT provisioning could use a server-side database. Each ESP32 could have an ID associated with it, either hard-coded or somehow assigned at startup. This ID would be the key to a database which the server can use to store the data associated with each device. Each message received from each device would include this key, allowing it to be sorted into the right spot.
 
+## Sources
+https://medium.com/alvarium/iot-device-provisioning-671131600ab1
+https://en.wikipedia.org/wiki/Denial-of-service_attack
+https://en.wikipedia.org/wiki/Man-in-the-middle_attack
+
 -----
 
 ## Reminders
