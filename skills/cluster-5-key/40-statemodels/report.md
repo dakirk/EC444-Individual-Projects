@@ -1,17 +1,20 @@
-#  Skill Name
-
-Author: FirstName LastName, YYYY-MM-DD
+#  State Models
+Author: David Kirk, 2019-11-22
 
 ## Summary
+This is an entirely written skill, so I am doing it entirely within this report.
 
+### State diagram:
 
-## Sketches and Photos
+![State diagram](images/state-diagram.png)
 
+### State table:
 
-## Modules, Tools, Source Used in Solution
-
-
-## Supporting Artifacts
+| Event              | State: Locked  | State: Authenticating | State: Unlocked |
+|--------------------|----------------|-----------------------|-----------------|
+| Invalid id or code | Authenticating | Locked                | Authenticating  |
+| Valid id and code  | Authenticating | Unlocked              | Authenticating  |
+| Timeout            | N/A            | N/A                   | Locked          |
 
 
 -----
