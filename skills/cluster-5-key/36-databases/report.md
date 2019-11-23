@@ -1,18 +1,9 @@
-#  Skill Name
+#  Databases
 
-Author: FirstName LastName, YYYY-MM-DD
+Author: Kyle Martin, 2019-11-22
 
 ## Summary
-
-
-## Sketches and Photos
-
-
-## Modules, Tools, Source Used in Solution
-
-
-## Supporting Artifacts
-
+This is a team skill that Kyle did. Please see his GitHub page for the full skill.
 
 -----
 
