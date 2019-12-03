@@ -20,6 +20,8 @@ export LD_LIBRARY_PATH=.
 ```
 This will create a server at port 8080 and stream video at 320x240 resolution.
 
+NOTE: it seems to crash if run at 5fps.
+
 
 -----
 
