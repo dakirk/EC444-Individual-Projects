@@ -10,9 +10,9 @@ We're using [mjpg-streamer](https://github.com/jacksonliam/mjpg-streamer) to str
 ```
 cd ~/skill43/mjpg-streamer/mjpg-streamer-experimental
 export LD_LIBRARY_PATH=.
-./mjpg_streamer -i './input_uvc.so -d /dev/video0 -r 320x240 -f 15' -o './output_http.so -w ./www -p 8080'
+./mjpg_streamer -i './input_uvc.so -d /dev/video0 -r 100x100 -f 10' -o './output_http.so -w ./www -p 8080'
 ```
-This will create a server at port 8080 and stream video at 320x240 resolution.
+This will create a server at port 8080 and stream video at 100x100 resolution.
 
 NOTE: it seems to crash if run at 5fps.
 
