@@ -11,7 +11,7 @@ import sys
 
 # -----------  Config  ----------
 IP_VERSION = 'IPv4'
-PORT = 8080
+PORT = 3333
 # -------------------------------
 
 if IP_VERSION == 'IPv4':

@@ -13,7 +13,7 @@ import sys
 # -----------  Config  ----------
 PORT = 8080
 IP_VERSION = 'IPv4'
-IPV4 = '192.168.43.119'#'localhost'
+IPV4 = '192.168.1.122'#'localhost'
 IPV6 = 'FE80::32AE:A4FF:FE80:5288'
 # -------------------------------
 

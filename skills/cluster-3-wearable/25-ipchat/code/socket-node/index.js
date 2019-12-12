@@ -27,11 +27,11 @@ server.on('listening', function () {
 server.on('message', function (message, remote) {
 	process.stdout.clearLine();
 	process.stdout.cursorTo(0);
-    process.stdout.write(remote.address + ':' + remote.port +' - ' + message);
+    process.stdout.write(remote.address + ':' + remote.port +' - ' + message + '\n');
 
     remoteport = remote.port;
     remoteaddress = remote.address;
-    process.stdout.write("Your message: ");
+    //process.stdout.write("Your message: ");
 
     // Send Ok acknowledgement
 
